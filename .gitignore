@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+
+# config fils
+conf-custom/core-site.xml
+conf-custom/storage-plugins-override.conf
+
+
 # User-specific files
 *.suo
 *.user
