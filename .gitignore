@@ -6,7 +6,7 @@
 
 # config fils
 conf-custom/core-site.xml
-conf-custom/storage-plugins-override.conf
+conf-custom/storage-plugins-override.xml
 
 
 # User-specific files

@@ -1,12 +1,12 @@
 # Apache Drill on Azure Blob
 
-A simple way to run Apache Drill (embedded mode) against Azure Blob store. 
+A simple way to run Apache Drill (embedded mode) against Azure Blob store.
 
-> NOTE: Apache Drill is installed in the "embedded" mode. This is recommeneded only for testing purposes. If you need a scalable solution you should install Apache Drill in ["distributed"](https://drill.apache.org/docs/install-drill-introduction/) mode. [Here]( https://github.com/Agirish/drill-containers) you can find a repo dedicated to run Apache Drill in Distributed mode on containers
+> NOTE: Apache Drill is installed in the "embedded" mode. This is recommeneded only for testing purposes. If you need a scalable solution you should install Apache Drill in ["distributed"](https://drill.apache.org/docs/install-drill-introduction/) mode. [Here](https://github.com/Agirish/drill-containers) you can find a repo dedicated to run Apache Drill in Distributed mode on containers
 
-**Detailed Articles** 
+**Detailed Articles**
 
-This repo is a companion of this Medium post: 
+This repo is a companion of this Medium post:
 
 https://medium.com/@mauridb/apache-drill-azure-blobs-and-azure-stream-analytics-ef34a1360d2b
 
@@ -16,19 +16,19 @@ https://drill.apache.org/docs/azure-blob-storage-plugin/
 
 **Building and Running the Image**
 
-With this approach you'll customize the storage plugin configuration so that the Azure Blob Storage Key will never be visible to the user using Drill. This is the most secure way to run Drill against Azure Blob Storage, but it requires you to *build* your own image and then run it.
+With this approach you'll customize the storage plugin configuration so that the Azure Blob Storage Key will never be visible to the user using Drill. This is the most secure way to run Drill against Azure Blob Storage, but it requires you to _build_ your own image and then run it.
 
 Make sure you have Docker installed and configured to support Linux containers.
 
-Configure the files conf/core-size.xml and conf/storage-plugins-override.conf as described in one of the above articles and then build the Docker image:
+Configure the files conf/core-size.xml.example and conf/storage-plugins-override.conf.example as described in one of the above articles, remove the `.example` and then build the Docker image:
 
     docker build . -f Dockerfile-Custom -t azure-drill
 
 Once the image is ready, run it:
 
-    docker run -it --rm -d --name drill -p 8047:8047 -t azure-drill /bin/bash    
+    docker run -it --rm -d --name drill -p 8047:8047 -t azure-drill /bin/bash
 
-this will run the image in detached mode, and you can then query your files directly on Azure the web UI available at 
+this will run the image in detached mode, and you can then query your files directly on Azure the web UI available at
 
 http://localhost:8047
 
@@ -44,7 +44,7 @@ Just run:
 
     docker run -it --rm -d --name drill -p 8047:8047 -t yorek/apache-drill-azure-blob /bin/bash
 
-to run Apache Drill in background. You can now connect to the web interface 
+to run Apache Drill in background. You can now connect to the web interface
 
 http://localhost:8047
 
@@ -77,4 +77,4 @@ The VM will be set up using the script availabe in `vm/setup-drill.sh` via [clou
 
 After a few minutes Apache Drill Embedded will be up and running.
 
-> NOTE: Apache Drill is installed in the "embedded" mode. This is recommeneded only for testing purposes. If you need a scalable solution you should install Apache Drill in ["distributed"](https://drill.apache.org/docs/install-drill-introduction/) mode. [Here]( https://github.com/Agirish/drill-containers) you can find a repo dedicated to run Apache Drill in Distributed mode on containers
+> NOTE: Apache Drill is installed in the "embedded" mode. This is recommeneded only for testing purposes. If you need a scalable solution you should install Apache Drill in ["distributed"](https://drill.apache.org/docs/install-drill-introduction/) mode. [Here](https://github.com/Agirish/drill-containers) you can find a repo dedicated to run Apache Drill in Distributed mode on containers
